@@ -19,7 +19,7 @@ app.listen(port, () =>{
 })
 
 
-const api = require("./src/back/indexApi.js");
+const api = require("./back/indexApi.js");
 
 api.register(app,db);
 

@@ -1,0 +1,25 @@
+{
+  "name": "tfg",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jesvencam/TFG.git"
+  },
+  "author": "jesvencam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jesvencam/TFG/issues"
+  },
+  "homepage": "https://github.com/jesvencam/TFG#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "sqlite3": "^5.1.4"
+  }
+}

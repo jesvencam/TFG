@@ -4,8 +4,8 @@ const BASE_API_URL = "api/v1";
 
 module.exports.register = (app,db) =>{
 
+    //Obtener la tabla de aves de la bd
 
-    //Obtener la tabla de pajaros de la bd 
     app.get("/api/birds", (req, res, next) => {
         var sql = "SELECT * FROM birds"
         var params = []
@@ -16,12 +16,6 @@ module.exports.register = (app,db) =>{
             }else{
               res.send(JSON.stringify(rows,null,2));
             }
-
-            /*
-            res.json({
-                "message":"success",
-                "data":rows
-            })*/
           });
     });
 
@@ -42,6 +36,45 @@ module.exports.register = (app,db) =>{
             }
            
           });
+    });
+
+    app.get("/api/datas/prueba/:year",(req,res)=>{
+      var sql = "SELECT * FROM datas"
+      var params = []
+      var year = req.query.year;
+      var from = req.query.from;
+      var to = req.query.to;
+      for(var i = 0; i<Object.keys(req.query).length;i++){
+        var element = Object.keys(req.query)[i];
+        if(element != "year" && element != "from" && element != "to" && element != "limit" && element != "offset"){
+            res.sendStatus(400, "BAD REQUEST");
+            return;
+        }
+    }
+    if(from>to){
+        res.sendStatus(400, "BAD REQUEST");
+        return;
+    }else{
+      db.all(sql, params, (err, rows) => {
+        if (err) {
+          res.sendStatus(500,'INTERNAL SERVER ERROR');
+          return;
+        }
+        if(rows==0) {
+          res.sendStatus(500,'NO Database Datas')
+          
+        }else{
+          console.log(JSON.stringify(rows));
+          console.log(year)
+          
+        }
+       
+      });
+
+    }
+        
+
+
     });
 
 
