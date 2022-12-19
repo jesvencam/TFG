@@ -1,0 +1,19 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Entrada</th>
+        <th scope="col">Nombre Común Ave</th>
+        <th scope="col">Confianza</th>
+        <th scope="col">Handle</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of datas">
+        <th scope="row">{{data.id_data}}</th>
+        <td>{{data.commonName}}</td>
+        <td>{{data.confidence}}</td>
+        <td>{{data.speciesCode}}</td>
+      </tr>
+  
+    </tbody>
+  </table>
