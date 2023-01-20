@@ -1,0 +1,18 @@
+h1,h2,h3{
+    text-align: center;
+}
+
+img{
+    align-items: center;
+    text-align: center;
+}
+
+#imagenTarjeta1{
+    width: 500px;
+    display: block;
+    margin: auto;
+    padding: 10px;
+
+    
+}
+

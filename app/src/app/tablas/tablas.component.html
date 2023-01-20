@@ -14,6 +14,7 @@
         <td>{{data.confidence}}</td>
         <td>{{data.speciesCode}}</td>
       </tr>
-  
+      <ngb-pagination [collectionSize]="70" [(page)]="page" aria-label="Default pagination"></ngb-pagination>
+
     </tbody>
   </table>

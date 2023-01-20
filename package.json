@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/jesvencam/TFG#readme",
   "dependencies": {
+    "bootstrap": "^5.3.0-alpha1",
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "sqlite3": "^5.1.4"

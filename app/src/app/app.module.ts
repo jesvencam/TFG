@@ -7,10 +7,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { TablasComponent } from './tablas/tablas.component';
 import { HomeComponent } from './home/home.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DocsComponent } from './docs/docs.component';
 
 const appRoutes = [
   {path: '', component:HomeComponent},
-  {path:'tables',component : TablasComponent}
+  {path:'tables',component : TablasComponent},
+  {path:'docs',component:DocsComponent}
 ]
 
 @NgModule({
@@ -18,13 +21,15 @@ const appRoutes = [
     AppComponent,
     TablasComponent,
     HomeComponent,
+    DocsComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    NgbModule
 
   ],
   providers: [],
