@@ -8,13 +8,13 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let data of datas">
+      <tr *ngFor="let data of datas | paginate: { itemsPerPage: 10, currentPage: p }">
         <th scope="row">{{data.id_data}}</th>
         <td>{{data.commonName}}</td>
         <td>{{data.confidence}}</td>
         <td>{{data.speciesCode}}</td>
       </tr>
-      <ngb-pagination [collectionSize]="70" [(page)]="page" aria-label="Default pagination"></ngb-pagination>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
 
     </tbody>
   </table>

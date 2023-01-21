@@ -8,8 +8,7 @@ import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./tablas.component.css']
 })
 export class TablasComponent {
-  page = 4;
-
+  p: number = 1;
   public datas : Array<any> = [];
   constructor(private dataService : DatasService){
     this.dataService.getDatas().subscribe((res:any)=>{
