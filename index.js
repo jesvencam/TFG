@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const db = require("./db.js");
+    const db = require("./db.js");
 const cors = require("cors");
 
 const app = express();
@@ -10,8 +10,8 @@ app.use(cors());
 var port = process.env.PORT || 8080;
 
 
-app.get("/api", (req, res) => {
-    res.send({"result":true});
+app.get("/", (req, res) => {
+    res.sendStatus(200,"OK");
 });
 
 app.listen(port, () =>{
