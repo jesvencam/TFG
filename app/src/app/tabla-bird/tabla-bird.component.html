@@ -1,0 +1,26 @@
+
+
+
+
+<h1>Tabla de registros de aves </h1>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Entrada</th>
+        <th scope="col">Nombre Común Ave</th>
+        <th scope="col">Código de especie</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let bird of birds | paginate: { itemsPerPage: 10, currentPage: p }">
+        <td>{{bird.id_bird}}</td>
+        <td>{{bird.name}}</td>
+        <td>{{bird.speciesCode}}</td>
+      </tr>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+    </tbody>
+  </table>
+
+
+  <button type="button" class="btn btn-primary" ><a class="nav-link" [routerLink]="'/tables'" >Volver</a></button>

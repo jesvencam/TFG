@@ -9,13 +9,17 @@ import { TablasComponent } from './tablas/tablas.component';
 import { HomeComponent } from './home/home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DocsComponent } from './docs/docs.component';
-import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
+import {NgxPaginationModule} from 'ngx-pagination';
+import { TablaBirdComponent } from './tabla-bird/tabla-bird.component';
+import { TablaDatasComponent } from './tabla-datas/tabla-datas.component'; // <-- import the module
 
 
 const appRoutes = [
   {path: '', component:HomeComponent},
   {path:'tables',component : TablasComponent},
-  {path:'docs',component:DocsComponent}
+  {path:'docs',component:DocsComponent},
+  {path:'tables/tablabird',component:TablaBirdComponent},
+  {path:'tables/tabladatas',component:TablaDatasComponent}
 ]
 
 @NgModule({
@@ -24,6 +28,8 @@ const appRoutes = [
     TablasComponent,
     HomeComponent,
     DocsComponent,
+    TablaBirdComponent,
+    TablaDatasComponent,
 
   ],
   imports: [

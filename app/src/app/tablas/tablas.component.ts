@@ -7,14 +7,10 @@ import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
   templateUrl: './tablas.component.html',
   styleUrls: ['./tablas.component.css']
 })
-export class TablasComponent {
-  p: number = 1;
-  public datas : Array<any> = [];
-  constructor(private dataService : DatasService){
-    this.dataService.getDatas().subscribe((res:any)=>{
-      console.log(res);
-      this.datas = res;
-    })
-  }
 
+
+export class TablasComponent {
 }
+
+
+

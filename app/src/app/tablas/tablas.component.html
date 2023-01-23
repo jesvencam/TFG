@@ -1,20 +1,5 @@
-<table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Entrada</th>
-        <th scope="col">Nombre Común Ave</th>
-        <th scope="col">Confianza</th>
-        <th scope="col">Handle</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let data of datas | paginate: { itemsPerPage: 10, currentPage: p }">
-        <th scope="row">{{data.id_data}}</th>
-        <td>{{data.commonName}}</td>
-        <td>{{data.confidence}}</td>
-        <td>{{data.speciesCode}}</td>
-      </tr>
-      <pagination-controls (pageChange)="p = $event"></pagination-controls>
 
-    </tbody>
-  </table>
+
+
+ <button type="button" class="btn btn-primary" ><a class="nav-link" [routerLink]="'/tables/tabladatas'" >Tabla de registros de identificaciones</a></button>
+ <button type="button" class="btn btn-primary" ><a class="nav-link" [routerLink]="'/tables/tablabird'" >Tabla de registros de aves</a></button>

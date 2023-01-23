@@ -1,0 +1,32 @@
+
+
+
+
+<h1>Tabla de registros de evaluaciones de sonidos   </h1>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Entrada</th>
+        <th scope="col">Nombre Común Ave</th>
+        <th scope="col">Confianza</th>
+        <th scope="col">Fecha y Hora</th>
+        <th scope="col">Eliminar</th>
+
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of datas | paginate: { itemsPerPage: 10, currentPage: p }">
+        <th scope="row">{{data.id_data}}</th>
+        <td>{{data.commonName}}</td>
+        <td>{{data.confidence}}</td>
+        <td>{{data.datetime}}</td>
+          <td><button type="button" class="btn btn-danger" (click)="onDelete(data.id_data)">Eliminar</button></td>
+      </tr>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+    </tbody>
+  </table>
+
+
+  <button type="button" class="btn btn-primary" ><a class="nav-link" [routerLink]="'/tables'" >Volver</a></button>

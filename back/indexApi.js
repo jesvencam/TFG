@@ -20,6 +20,25 @@ module.exports.register = (app,db) =>{
     });
 
     //Obtener tabla datos de analisis
+    app.get("/api/datas/:year", (req, res, next) => {
+      var sql = "SELECT * FROM datas"
+      var params = []
+      db.all(sql, params, (err, rows) => {
+          if (err) {
+            res.sendStatus(500,'INTERNAL SERVER ERROR');
+            return;
+          }
+          if(rows==0) {
+            res.sendStatus(500,'NO Database Datas')
+            
+          }else{
+            res.send(JSON.stringify(rows,null,2));
+          }
+         
+        });
+  });
+
+    //Obtener tabla datos de analisis
     app.get("/api/datas", (req, res, next) => {
         var sql = "SELECT * FROM datas"
         var params = []
@@ -38,64 +57,53 @@ module.exports.register = (app,db) =>{
           });
     });
 
-    app.get("/api/datas/prueba/:year",(req,res)=>{
+    app.get("/api/datas", (req, res, next) => {
       var sql = "SELECT * FROM datas"
       var params = []
-      var year = req.query.year;
-      var from = req.query.from;
-      var to = req.query.to;
-      for(var i = 0; i<Object.keys(req.query).length;i++){
-        var element = Object.keys(req.query)[i];
-        if(element != "year" && element != "from" && element != "to" && element != "limit" && element != "offset"){
-            res.sendStatus(400, "BAD REQUEST");
-            return;
-        }
-    }
-    if(from>to){
-        res.sendStatus(400, "BAD REQUEST");
-        return;
-    }else{
       db.all(sql, params, (err, rows) => {
-        if (err) {
-          res.sendStatus(500,'INTERNAL SERVER ERROR');
-          return;
-        }
-        if(rows==0) {
-          res.sendStatus(500,'NO Database Datas')
-          
-        }else{
-          console.log(JSON.stringify(rows));
-          console.log(year)
-          
-        }
+          if (err) {
+            res.sendStatus(500,'INTERNAL SERVER ERROR');
+            return;
+          }
+          if(rows==0) {
+            res.sendStatus(500,'NO Database Datas')
+            
+          }else{
+            res.send(JSON.stringify(rows,null,2));
+          }
+         
+        });
        
-      });
-
-    }
-        
-
-
     });
 
+    //Delete a data from his id_data
+    app.delete("/api/datas/:id_data",(req, res, next) => {
+      var id = req.params.id_data;
+      console.log(id);
+      var sql = `DELETE FROM datas WHERE id_data=${id}`
+      var params = []
+      db.run(sql, params, (err, rows) => { 
+          if (err) {
+            res.sendStatus(500,'INTERNAL SERVER ERROR');
+            return;
+          }
+          if(rows==0) {
+            res.sendStatus(500,'NO Database Datas')
+            
+          }else{
+            res.sendStatus(200,"OK");
+          }
+         
+        });
+  });
+
+   
+
+   
 
 
 
- //Función paginación 
-    function paginacion(req, lista){
 
-        var res = [];
-        const limit = req.query.limit;
-        const offset = req.query.offset;
-        
-        if(limit < 1 || offset < 0 || offset > lista.length){
-            res.push("BAD PARAMS");
-            return res;
-        }
-
-        res = lista.slice(offset,parseInt(limit)+parseInt(offset));
-        return res;
-
-    }
     
 
 }
