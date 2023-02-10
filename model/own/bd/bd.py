@@ -5,7 +5,8 @@ def lecturaDatos():
     data=[]
     birds=set()
 #Abrimos el archivo que guarda el análisis del sonido
-    with open("example\soundscape.BirdNET.selection.table.txt","r") as archivo:
+                                                            #ESTE ARCHIVO HAY QUE CAMBIARLO AHORA MISMO ESTA EL DE PRUEBA CON UN AUDIO BUENO. 
+    with open("/Users/jesusvenacampos/Universidad/CUARTO/TFG/Repositorio/TFG/model/example/soundscape.BirdNET.selection.table.txt","r") as archivo:
 
         for l in archivo.readlines():
             
@@ -39,7 +40,7 @@ def lecturaDatos():
 
 def dataBase(data,birds):
     #Creamos una conexión a la base de datos, si no esta creada, la inicializa 
-    conex = sqlite3.connect("own/bd/dataBase")
+    conex = sqlite3.connect("/Users/jesusvenacampos/Universidad/CUARTO/TFG/Repositorio/TFG/model/own/bd/dataBase")
     cursor = conex.cursor()
 
     print("En la BD")
@@ -76,7 +77,7 @@ def dataBase(data,birds):
     conex.close()
 
     #Borro el archivo con el análisis para no tener duplicaciones innecesarias, aunque tamb lo borro en el itMOd
-    file = open('example\output.BirdNET.selection.table.txt','w')
+    file = open('/Users/jesusvenacampos/Universidad/CUARTO/TFG/Repositorio/TFG/model/example/output.BirdNET.selection.table.txt','w')
     file.close()
 
     print('Datos insertados en la base de datos')

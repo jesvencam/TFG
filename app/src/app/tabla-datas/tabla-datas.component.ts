@@ -12,7 +12,6 @@ export class TablaDatasComponent {
   p: number = 1;
 
   public datas : Array<any> = [];
-  public birds : Array<any> = [];
 
   constructor(private dataService : DatasService){
 

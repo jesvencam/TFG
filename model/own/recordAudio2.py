@@ -6,10 +6,10 @@ import wave
 
 trozo = 1024
 FORMAT = pyaudio.paInt16
-CHANNELS = 2
+CHANNELS = 1
 RATE = 44100
 RECORD_SECONDS = 5
-WAVE_OUTPUT_FILENAME = "example/output.wav"
+WAVE_OUTPUT_FILENAME = "model/example/output.wav"
 
 p = pyaudio.PyAudio()
 

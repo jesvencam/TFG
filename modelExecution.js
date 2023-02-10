@@ -1,6 +1,6 @@
 
 const spawn  = require("child_process").spawn; // Para generar un subproceso 
-const process1 = spawn("python3",["../../../model/own/itMod.py"]);
+const process1 = spawn("python3",["model/own/itMod.py"]);
 
 let res = "";
 
