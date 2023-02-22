@@ -57,22 +57,43 @@ module.exports.register = (app,db) =>{
           });
     });
 
-    app.get("/api/datas", (req, res, next) => {
-      var sql = "SELECT * FROM datas"
-      var params = []
+    function recordRealTime(){
+      const {spawn}  = require("child_process"); // Para generar un subproceso 
+      const process1 = spawn("python3",["/Users/jesusvenacampos/Universidad/CUARTO/TFG/Repositorio/TFG/model/own/itMod.py"]);
+      
+      let res1 = "ewlfinalllll";
+      
+      process1.stdout.on("data",function(data){
+          res1 += data.toString();
+      });
+      
+      process1.stdout.on("end",function(){
+          console.log("PROCESO TERMINADO");
+          
+      });      
+      process1.stdin.end()
+
+    
+    }
+
+    app.get("/api/pruebaDeBoton", (req, res, next) => {
+      recordRealTime();
+      var sql = "SELECT * FROM birds"
+        var params = []
       db.all(sql, params, (err, rows) => {
-          if (err) {
-            res.sendStatus(500,'INTERNAL SERVER ERROR');
-            return;
-          }
-          if(rows==0) {
-            res.sendStatus(500,'NO Database Datas')
-            
-          }else{
-            res.send(JSON.stringify(rows,null,2));
-          }
-         
-        });
+        if (err) {
+          res.sendStatus(500,'INTERNAL SERVER ERROR');
+          return;
+        }
+        if(rows==0) {
+          res.sendStatus(500,'NO Database Datas')
+          
+        }else{
+          res.send(JSON.stringify(rows,null,2));
+        }
+       
+      });
+      
        
     });
 

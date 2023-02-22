@@ -11,6 +11,7 @@ export class DatasService {
   //Urls de la api
   urlDatas = "http://localhost:8080/api/datas";
   urlBirds = "http://localhost:8080/api/birds";
+  urlProgram = "http://localhost:8080/api/pruebaDeBoton";
   
   constructor( private http: HttpClient) { 
     console.log("Servicio datas")
@@ -28,6 +29,10 @@ export class DatasService {
   //Función para coger los datos de aves
   getBirds(){
     return this.http.get(this.urlBirds,)
+  }
+
+  startProgram(){
+    return this.http.get(this.urlProgram,)
   }
 
   //Función para eliminar datos de registros por su id 

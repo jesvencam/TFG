@@ -6,7 +6,7 @@ def lecturaDatos():
     birds=set()
 #Abrimos el archivo que guarda el análisis del sonido
                                                             #ESTE ARCHIVO HAY QUE CAMBIARLO AHORA MISMO ESTA EL DE PRUEBA CON UN AUDIO BUENO. 
-    with open("/Users/jesusvenacampos/Universidad/CUARTO/TFG/Repositorio/TFG/model/example/soundscape.BirdNET.selection.table.txt","r") as archivo:
+    with open("/Users/jesusvenacampos/Universidad/CUARTO/TFG/Repositorio/TFG/model/example/output.BirdNET.selection.table.txt","r") as archivo:
 
         for l in archivo.readlines():
             
