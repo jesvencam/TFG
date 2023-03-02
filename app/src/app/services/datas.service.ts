@@ -12,6 +12,7 @@ export class DatasService {
   urlDatas = "http://localhost:8080/api/datas";
   urlBirds = "http://localhost:8080/api/birds";
   urlProgram = "http://localhost:8080/api/pruebaDeBoton";
+  urlBirdInfo = "http://localhost:8080/api/birdInfo";
   
   constructor( private http: HttpClient) { 
     console.log("Servicio datas")
@@ -40,5 +41,10 @@ export class DatasService {
     this.urlDatas = `${this.urlDatas}/${id}`; 
     return this.http.delete(this.urlDatas,)
 
+  }
+
+  getInfoBird(birdName: String){
+    this.urlBirdInfo = `${this.urlBirdInfo}/${birdName}`
+    return this.http.get(this.urlBirdInfo,);
   }
 }

@@ -19,7 +19,7 @@ stream = p.open(format=FORMAT,
                 input=True,
                 frames_per_buffer=trozo)
 
-print("* recording")
+print("* recording...")
 
 frames = []
 
@@ -28,7 +28,7 @@ for i in range(0, int(RATE / trozo * RECORD_SECONDS)):
     frames.append(data)
 
 
-print("* done recording")
+print("* done recording...")
 
 stream.stop_stream()
 stream.close()

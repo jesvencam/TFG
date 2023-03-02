@@ -1,6 +1,8 @@
 const bodyParser = require("body-parser");
 const sqlite3 = require("sqlite3").verbose();
 const BASE_API_URL = "api/v1";
+const { Configuration, OpenAIApi } = require("openai");
+
 
 module.exports.register = (app,db) =>{
 
@@ -61,7 +63,7 @@ module.exports.register = (app,db) =>{
       const {spawn}  = require("child_process"); // Para generar un subproceso 
       const process1 = spawn("python3",["/Users/jesusvenacampos/Universidad/CUARTO/TFG/Repositorio/TFG/model/own/itMod.py"]);
       
-      let res1 = "ewlfinalllll";
+      let res1 = "";
       
       process1.stdout.on("data",function(data){
           res1 += data.toString();
@@ -118,9 +120,46 @@ module.exports.register = (app,db) =>{
         });
   });
 
+
+  app.get("/api/birdInfo/:bird", async (req, res, next) => {
+    var bird = req.params.bird;
+    let resultado = conexionApiOpenAI(bird,res);
+    
+    
+  });
    
 
-   
+   function conexionApiOpenAI(bird,res){
+      const config = new Configuration({
+        apiKey: "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",
+      });
+      
+      const openai = new OpenAIApi(config);
+      
+      const runPrompt = async () => {
+        const prompt = `Give me some information about the ${bird} and an url picture in this json format:{
+          Information:
+          URL:
+        }`;
+      
+        const response = await openai.createCompletion({
+          model: "text-davinci-003",
+          prompt: prompt,
+          max_tokens: 2048,
+          temperature: 1,
+        });
+      
+          console.log(response.data.choices[0].text);
+          res.send(response.data.choices[0].text)
+          return response.data.choices[0].text;
+
+      };
+      
+      runPrompt();
+      
+
+    
+   }
 
 
 

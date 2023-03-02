@@ -5,21 +5,28 @@ def lecturaDatos():
     data=[]
     birds=set()
 #Abrimos el archivo que guarda el análisis del sonido
-                                                            #ESTE ARCHIVO HAY QUE CAMBIARLO AHORA MISMO ESTA EL DE PRUEBA CON UN AUDIO BUENO. 
+                                                            #Para pruebas y llenar la db de datos buenos cambiar el ' output ' por ' soundscape ' 
     with open("/Users/jesusvenacampos/Universidad/CUARTO/TFG/Repositorio/TFG/model/example/output.BirdNET.selection.table.txt","r") as archivo:
 
         for l in archivo.readlines():
             
             #Lista de tuplas con todos los datos obtenidos
+
             lsf=l.replace("\n","").split("\t")
+
+            #Eliminamos los datos que no necesitamos
             del lsf[0:3]
+            
             del lsf[2:4]
-            print(lsf)
+
+            #Añadimos un campo con la fecha y hora del dato obtenido
+
             datetime = time.strftime("%m/%d/%Y, %H:%M:%S")
+
             lsf.append(datetime)
-            print(lsf)
 
             data.append(lsf)
+
             birds.add((lsf[3],lsf[2]))
             
 

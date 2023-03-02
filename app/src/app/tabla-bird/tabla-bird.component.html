@@ -16,6 +16,9 @@
         <td>{{bird.id_bird}}</td>
         <td>{{bird.name}}</td>
         <td>{{bird.speciesCode}}</td>
+        <button type="button" class="btn btn-primary" (click)="onInfoBird(bird.name)">Reset</button>
+       <!-- <button mat-button (click)="openDialog()">Open dialog</button>-->
+
       </tr>
       <pagination-controls (pageChange)="p = $event"></pagination-controls>
 

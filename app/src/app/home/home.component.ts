@@ -4,7 +4,7 @@ import { DatasService } from '../services/datas.service';
 
 @Component({
   selector: 'app-home',
-
+  
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
@@ -18,7 +18,7 @@ export class HomeComponent {
     
   } 
 
-  //Funcion se encarga de activar el modelo en segundo plano desde el frontEnd.
+  //Funcion se encarga de activar el modelo en segundo plano desde el frontEnd
   onClick1(){
     this.dataService.startProgram().subscribe((res:any)=>{
       console.log(res);

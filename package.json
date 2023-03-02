@@ -19,9 +19,11 @@
   },
   "homepage": "https://github.com/jesvencam/TFG#readme",
   "dependencies": {
+    "@agm/core": "^1.1.0",
     "bootstrap": "^5.3.0-alpha1",
     "cors": "^2.8.5",
     "express": "^4.18.2",
+    "openai": "^3.2.1",
     "spawn-npm": "^1.4.7",
     "sqlite3": "^5.1.4"
   }
