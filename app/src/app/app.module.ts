@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { TablasComponent } from './tablas/tablas.component';
 import { HomeComponent } from './home/home.component';
@@ -11,14 +11,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DocsComponent } from './docs/docs.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { TablaBirdComponent } from './tabla-bird/tabla-bird.component';
-import { TablaDatasComponent } from './tabla-datas/tabla-datas.component'; // <-- import the module
+import { TablaDatasComponent } from './tabla-datas/tabla-datas.component'; 
 import { ColorPickerModule } from 'ngx-color-picker';
 import { NgChartsModule } from 'ng2-charts';
 import { InfoBirdsComponent } from './info-birds/info-birds.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-
-
+import { NgxSpinner, NgxSpinnerModule } from 'ngx-spinner';
+import { InterceptorService } from './services/interceptor.service';
 
 const appRoutes = [
   {path: '', component:HomeComponent},
@@ -29,6 +28,7 @@ const appRoutes = [
   {path:'infoBirds',component:InfoBirdsComponent}
 ]
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +38,7 @@ const appRoutes = [
     TablaBirdComponent,
     TablaDatasComponent,
     InfoBirdsComponent,
+  
 
   ],
   imports: [
@@ -49,10 +50,13 @@ const appRoutes = [
     NgxPaginationModule,
     ColorPickerModule,
     NgChartsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgxSpinnerModule
 
   ],
-  providers: [],
+  providers: [
+    {provide : HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
