@@ -67,7 +67,7 @@ export class TablaBirdComponent {
   hideloader() {
     const elem = document.getElementById("loading");
     //document.getElementById('loading').style.display = 'none';
-}
+  }
 
   open(content: any) {
     console.log("en el open")
@@ -90,6 +90,10 @@ export class TablaBirdComponent {
     }
   }
   
+
+  closeModal(){
+    window.location.reload();
+  }
 
 
 

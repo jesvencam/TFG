@@ -6,6 +6,7 @@
         <th scope="col">Entrada</th>
         <th scope="col">Nombre Común Ave</th>
         <th scope="col">Código de especie</th>
+        <th scope="col">Más información</th>
       </tr>
     </thead>
     <tbody>
@@ -13,16 +14,27 @@
         <td>{{bird.id_bird}}</td>
         <td>{{bird.name}}</td>
         <td>{{bird.speciesCode}}</td>
-       <button class="btn btn-lg btn-outline-primary" (click)="onInfoBird(content,bird.name)">MODAL</button>
-
+        <button class="button-defect" role="button" (click)="onInfoBird(content,bird.name)"> Más información</button>
       </tr>
       <pagination-controls (pageChange)="p = $event"></pagination-controls>
 
     </tbody>
   </table>
 
-  <button type="button" class="btn btn-primary" ><a class="nav-link" [routerLink]="'/tables'" >Volver</a></button>
-<ngx-spinner></ngx-spinner>
+  <button type="button" class="button-defect" ><a class="nav-link" [routerLink]="'/tables'" >Volver</a></button>
+<ngx-spinner> 
+  <style>
+    .container{
+      background-color: yellow;
+    }
+  </style>
+  <div class="container">
+    <h1>Vamos a pedirle a chatGPT que nos busque algo sobre este ave, espera unos segundos por favor...</h1>
+  </div>
+  
+
+
+  </ngx-spinner>
 
 
   <ng-template #content let-modal>
@@ -33,26 +45,15 @@
     <div>
       
     </div>
-    {{birdPhotoUrl}}
+  
     <a href ="{{birdPhotoUrl}}"> <h1>Haz Click aquí para ver una imagen del pájaro {{birdInfo}}</h1></a>
 
     <a href ="{{birdSoundUrl}}"> <h1>Haz Click aquí para ver regiones y grabaciones donde se encuentra el pájaro {{birdInfo}}</h1></a>
     <div class="modal-footer">
         <button type="button" 
             class="btn btn-outline-dark" 
-            (click)="modal.close('Save click')">
+            (click)="closeModal()">
             close
         </button>
     </div>
 </ng-template>
-  
-
-<!-- spinnner element is 
-    defined with id loading 
-    <div class="d-flex justify-content-center">
-      <div class="spinner-border" role="status">
-          <span class="sr-only" id="loading"></span>
-      </div>
-  </div> 
-
--->
