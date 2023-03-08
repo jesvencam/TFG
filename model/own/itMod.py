@@ -52,7 +52,7 @@ def params(func):
 
     #Esperamos 30 segundos para parar el bucle(ponemos el valor a False)
 
-    time.sleep(10)
+    time.sleep(30)
 
     #Ponemos el valor act a false, paramos la ejecución del hilo
 

@@ -33,6 +33,7 @@ export class DatasService {
   }
 
   startProgram(){
+    console.log("En el servicio de datos.."); 
     return this.http.get(this.urlProgram,)
   }
 
@@ -46,5 +47,9 @@ export class DatasService {
   getInfoBird(birdName: String){
     this.urlBirdInfo = `${this.urlBirdInfo}/${birdName}`
     return this.http.get(this.urlBirdInfo,);
+  }
+
+  ngOnInit() : void{
+    this.getDatas();
   }
 }

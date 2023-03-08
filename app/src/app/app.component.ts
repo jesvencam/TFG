@@ -13,7 +13,6 @@ export class AppComponent {
   public datas : Array<any> = []
   constructor(private datasService : DatasService){
     this.datasService.getDatas().subscribe((res:any)=>{
-      console.log(res)
       this.datas = res
 
     })

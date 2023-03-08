@@ -61,7 +61,33 @@ module.exports.register = (app,db) =>{
           });
     });
 
+
+  //Obtener tabla datos de analisis
+  app.get("/api/tempDatas", (req, res, next) => {
+    var sql = "SELECT * FROM temp"
+
+    var params = []
+    db.all(sql, params, (err, rows) => {
+        if (err) {
+          res.sendStatus(500,'INTERNAL SERVER ERROR');
+          return;
+        }
+        if(rows==0) {
+          res.sendStatus(500,'NO Database Datas')
+          
+        }else{
+          res.send(JSON.stringify(rows,null,2));
+        }
+       
+      });
+});
+
+
+
+
     function recordRealTime(){
+      console.log("Ejecutando el proceso");
+
       const {spawn}  = require("child_process"); // Para generar un subproceso 
       const process1 = spawn("python3",["/Users/jesusvenacampos/Universidad/CUARTO/TFG/Repositorio/TFG/model/own/itMod.py"]);
       
@@ -81,6 +107,8 @@ module.exports.register = (app,db) =>{
     }
 
     app.get("/api/pruebaDeBoton", (req, res, next) => {
+      console.log("En la api ejecutando botón... ")
+
       recordRealTime();
       var sql = "SELECT * FROM birds"
         var params = []
@@ -96,7 +124,7 @@ module.exports.register = (app,db) =>{
           res.send(JSON.stringify(rows,null,2));
         }
        
-      });
+      }); 
       
        
     });
@@ -112,7 +140,7 @@ module.exports.register = (app,db) =>{
             return;
           }
           if(rows==0) {
-            res.sendStatus(500,'NO Database Datas')
+            res.sendStatus(500,'DATA DOESN´T EXIST')
             
           }else{
             res.sendStatus(200,"OK");
@@ -132,46 +160,46 @@ module.exports.register = (app,db) =>{
    
 
    function conexionApiOpenAI(bird,res){
-      // const config = new Configuration({
-      //   apiKey: "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",
-      // });
+      const config = new Configuration({
+        apiKey: "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",
+      });
       
-      // const openai = new OpenAIApi(config);
+      const openai = new OpenAIApi(config);
       
-      // const runPrompt = async () => {
-      //   const prompt = `Dame informacion general sobre el pajaro ${bird},una url a google fotos buscando este pájaro y busca el nombre en xeno-canto y devuelve la página , en formato json del siguiente estilo:
-      //    {
-      //     "Information":
-      //     "URL":
-      //     "AudioFile"
-      //   }`;
+      const runPrompt = async () => {
+        const prompt = `Dame informacion general sobre el pajaro ${bird},una url de google fotos buscando este pájaro y busca el nombre en xeno-canto y devuelve la página , en formato json del siguiente estilo:
+         {
+          "Information":
+          "URL":
+          "AudioFile"
+        }`;
       
-      //   const response = await openai.createCompletion({
-      //     model: "text-davinci-003",
-      //     prompt: prompt,
-      //     max_tokens: 2048,
-      //     temperature: 1,
-      //   });
+        const response = await openai.createCompletion({
+          model: "text-davinci-003",
+          prompt: prompt,
+          max_tokens: 2048,
+          temperature: 1,
+        });
       
-      //     console.log(JSON.parse(response.data.choices[0].text));
+          console.log(JSON.parse(response.data.choices[0].text));
 
 
-      //     res.send(JSON.parse(response.data.choices[0].text));
-      //     return response.data.choices[0].JSON;
+          res.send(JSON.parse(response.data.choices[0].text));
+          return response.data.choices[0].JSON;
 
-      // };
+      };
       
-      // runPrompt();
+      runPrompt();
 
 
-      //para pruebas
+      // para pruebas
 
       
-      res.send(JSON.parse(`{
-        "Information": "The Rock Pigeon (Columba livia), also known as the common pigeon, is a member of the bird family Columbidae. It is believed to be the ancestor of all domestic pigeons. Rock Pigeons are large, stout birds with a small head and a short neck. They have short, strong legs and small feet. They have a compact body and a short tail. Rock Pigeons have colored feathers on their neck, head and back, and patterns on their wings. They have a wingspan of 40–60 cm (16–24 in).",
-        "URL": "https://upload.wikimedia.org/wikipedia/commons/3/37/Columba_livia_-_Reserva_Nacional_Lachay_-_Peru.jpg",
-        "AudioFile": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Rock_pigeon_MP4_Audio.ogg"
-      }`));
+      // res.send(JSON.parse(`{
+      //   "Information": "The Rock Pigeon (Columba livia), also known as the common pigeon, is a member of the bird family Columbidae. It is believed to be the ancestor of all domestic pigeons. Rock Pigeons are large, stout birds with a small head and a short neck. They have short, strong legs and small feet. They have a compact body and a short tail. Rock Pigeons have colored feathers on their neck, head and back, and patterns on their wings. They have a wingspan of 40–60 cm (16–24 in).",
+      //   "URL": "https://upload.wikimedia.org/wikipedia/commons/3/37/Columba_livia_-_Reserva_Nacional_Lachay_-_Peru.jpg",
+      //   "AudioFile": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Rock_pigeon_MP4_Audio.ogg"
+      // }`));
       
 
     

@@ -23,13 +23,9 @@
 
   <button type="button" class="button-defect" ><a class="nav-link" [routerLink]="'/tables'" >Volver</a></button>
 <ngx-spinner> 
-  <style>
-    .container{
-      background-color: yellow;
-    }
-  </style>
+  
   <div class="container">
-    <h1>Vamos a pedirle a chatGPT que nos busque algo sobre este ave, espera unos segundos por favor...</h1>
+    <h1>Estamos buscando algo de información de este ave, espera unos segundos por favor...</h1>
   </div>
   
 
@@ -38,17 +34,24 @@
 
 
   <ng-template #content let-modal>
-    <div>
-      <h1>Esta es a información del pájaro {{birdInfo}}</h1>
-    </div>
-    <p>{{birdInformation}}</p>
-    <div>
+    
+    
+    <div class = "container" id = "modal-footer">
+        <h1>Esta es a información del pájaro "{{birdInfo}}"</h1>
+           <p>{{birdInformation}}</p>
+
+         <div class="container">
+
+            <button class="button-defect" role="button">  <a class="nav-link" href ="{{birdPhotoUrl}}">Haz Click aquí para ver una imagen del pájaro {{birdInfo}}</a></button>
+    
+            <button class="button-defect" role="button">  <a  class="nav-link" href ="{{birdSoundUrl}}">Haz Click aquí para ver regiones y grabaciones donde se encuentra el pájaro {{birdInfo}}</a></button>
+        
+        </div>
       
     </div>
-  
-    <a href ="{{birdPhotoUrl}}"> <h1>Haz Click aquí para ver una imagen del pájaro {{birdInfo}}</h1></a>
 
-    <a href ="{{birdSoundUrl}}"> <h1>Haz Click aquí para ver regiones y grabaciones donde se encuentra el pájaro {{birdInfo}}</h1></a>
+
+
     <div class="modal-footer">
         <button type="button" 
             class="btn btn-outline-dark" 

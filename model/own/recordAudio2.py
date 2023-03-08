@@ -9,7 +9,7 @@ FORMAT = pyaudio.paInt16
 CHANNELS = 1
 RATE = 44100
 RECORD_SECONDS = 5
-WAVE_OUTPUT_FILENAME = "model/example/output.wav"
+
 
 p = pyaudio.PyAudio()
 
@@ -36,7 +36,7 @@ p.terminate()
 
 #Guarda el archivo de audio
 
-wf = wave.open(WAVE_OUTPUT_FILENAME, 'wb')
+wf = wave.open('/Users/jesusvenacampos/Universidad/CUARTO/TFG/Repositorio/TFG/model/example/output.wav','wb')
 wf.setnchannels(CHANNELS)
 wf.setsampwidth(p.get_sample_size(FORMAT))
 wf.setframerate(RATE)

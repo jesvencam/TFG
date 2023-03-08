@@ -31,9 +31,9 @@
 
   <ng-template #content let-modal>
     <div class = "container">
-      <h1>Seguro que quieres eliminar el registro?</h1>
+      <h1>¿Seguro que quieres eliminar el registro? Este cambio es irreversible</h1>
     </div>
-    <div class = "container">
+    <div class = "container-modal" >
       
         <button type="button" class="button-defect2" (click)="onDelete(id_data)">Eliminar</button>
 
@@ -47,7 +47,7 @@
         <button type="button" 
             class="btn btn-outline-dark" 
             (click)="closeModal()">
-            close
+            Cerrar
         </button>
     </div>
 </ng-template>

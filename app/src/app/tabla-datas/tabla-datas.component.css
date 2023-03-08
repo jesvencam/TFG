@@ -82,3 +82,10 @@ Buttoms
     box-shadow: none;
     color: #2c5777;
   }
+
+
+
+  .container-modal{
+    align-items: center;
+    margin : 0 auto;
+  }

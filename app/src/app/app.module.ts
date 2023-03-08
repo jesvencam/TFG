@@ -18,14 +18,18 @@ import { InfoBirdsComponent } from './info-birds/info-birds.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxSpinner, NgxSpinnerModule } from 'ngx-spinner';
 import { InterceptorService } from './services/interceptor.service';
+import { GraficasComponent } from './graficas/graficas.component';
 
+import * as CanvasJSAngularChart from '../assets/canvasjs.angular.component';
+var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
 const appRoutes = [
   {path: '', component:HomeComponent},
   {path:'tables',component : TablasComponent},
   {path:'docs',component:DocsComponent},
   {path:'tables/tablabird',component:TablaBirdComponent},
   {path:'tables/tabladatas',component:TablaDatasComponent},
-  {path:'infoBirds',component:InfoBirdsComponent}
+  {path:'infoBirds',component:InfoBirdsComponent},
+  {path:'graficas',component:GraficasComponent}
 ]
 
 
@@ -38,6 +42,9 @@ const appRoutes = [
     TablaBirdComponent,
     TablaDatasComponent,
     InfoBirdsComponent,
+    GraficasComponent,
+    CanvasJSChart
+
   
 
   ],
