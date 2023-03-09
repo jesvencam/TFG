@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component} from '@angular/core';
 import { DatasService } from '../services/datas.service';
 
 
@@ -7,13 +7,11 @@ import { DatasService } from '../services/datas.service';
   templateUrl: './graficas.component.html',
   styleUrls: ['./graficas.component.css']
 })
-export class GraficasComponent implements OnDestroy{
+export class GraficasComponent{
   constructor(private dataService : DatasService){
     this.loadDatas();
   }
-  ngOnDestroy(): void {
-    throw new Error('Method not implemented.');
-  }
+
   public datas : Array<any> = [];
   public dataPoints : Array<any> = [];
 

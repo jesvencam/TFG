@@ -19,7 +19,8 @@
         <td>{{data.datetime}}</td>
           <td><button type="button" class="button-defect2" (click)="openModal(content,data.id_data)">Eliminar</button></td>
       </tr>
-      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      <pagination-controls (pageChange)="p = $event" previousLabel="Anterior"
+      nextLabel="Siguiente"></pagination-controls>
 
     </tbody>
   </table>

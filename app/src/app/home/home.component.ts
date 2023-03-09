@@ -16,7 +16,8 @@ export class HomeComponent {
 
   //Funcion se encarga de activar el modelo en segundo plano desde el frontEnd
   onClick1(){
-    console.log("Ejecutando el onClick")
+    console.log("Ejecutando el onClick");
+
     this.dataService.startProgram().subscribe((res:any)=>{
       console.log(res);
     
@@ -24,6 +25,11 @@ export class HomeComponent {
     })
 
   }
+
+counter (){
+    
+}
+
 
 
  

@@ -1,5 +1,14 @@
 
 <h1>Tabla de registros de aves </h1>
+  <ngx-spinner> 
+  
+    <div class="container-spinner" id="spinner">
+      <h1>Estamos buscando algo de información de este ave, espera unos segundos por favor </h1>
+      <div class="spinner-border"></div>
+
+    </div>
+
+  </ngx-spinner>
 <table class="table">
     <thead>
       <tr>
@@ -16,21 +25,14 @@
         <td>{{bird.speciesCode}}</td>
         <button class="button-defect" role="button" (click)="onInfoBird(content,bird.name)"> Más información</button>
       </tr>
-      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      <pagination-controls (pageChange)="p = $event" previousLabel="Anterior"
+      nextLabel="Siguiente"></pagination-controls>
 
     </tbody>
   </table>
 
   <button type="button" class="button-defect" ><a class="nav-link" [routerLink]="'/tables'" >Volver</a></button>
-<ngx-spinner> 
-  
-  <div class="container">
-    <h1>Estamos buscando algo de información de este ave, espera unos segundos por favor...</h1>
-  </div>
-  
 
-
-  </ngx-spinner>
 
 
   <ng-template #content let-modal>
@@ -42,9 +44,9 @@
 
          <div class="container">
 
-            <button class="button-defect" role="button">  <a class="nav-link" href ="{{birdPhotoUrl}}">Haz Click aquí para ver una imagen del pájaro {{birdInfo}}</a></button>
+            <button class="button-defect" role="button">  <a class="nav-link" href ="{{birdPhotoUrl}}" target="_blank">Haz Click aquí para ver una imagen del pájaro {{birdInfo}}</a></button>
     
-            <button class="button-defect" role="button">  <a  class="nav-link" href ="{{birdSoundUrl}}">Haz Click aquí para ver regiones y grabaciones donde se encuentra el pájaro {{birdInfo}}</a></button>
+            <button class="button-defect" role="button">  <a  class="nav-link" href ="{{birdSoundUrl}}" target="_blank">Haz Click aquí para ver regiones y grabaciones donde se encuentra el pájaro {{birdInfo}}</a></button>
         
         </div>
       
@@ -56,7 +58,7 @@
         <button type="button" 
             class="btn btn-outline-dark" 
             (click)="closeModal()">
-            close
+            Cerrar
         </button>
     </div>
 </ng-template>
