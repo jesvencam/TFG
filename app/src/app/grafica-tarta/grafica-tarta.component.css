@@ -1,24 +1,4 @@
 
-.cardcontainer{
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-
-img{
-  max-width: 250px;
-  width: 250px;
-  height: 200px;
-}
-
-
-
-
-
-
 .button-defect {
     background-color: #e1ecf4;
     border-radius: 3px;
@@ -64,5 +44,3 @@ img{
   h1,h2,h3,button{
     text-align: center;
 }
-
-

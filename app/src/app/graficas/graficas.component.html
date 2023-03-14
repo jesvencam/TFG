@@ -1,6 +1,41 @@
-<div onload="loadDatas()" *ngIf="datas !=[]">
-	<canvasjs-chart [options]="chartOptions"></canvasjs-chart>    
+
+
+<div class="title">
+	<h1 style="text-align: center;">Gráficas de los datos extraidos de los análisis del modelo</h1>
+</div>  
+
+
+
+<div class="container">   
+	<div class="card-group mt-3">
+
+	  <div class="card text-center ">
+		<div class="card-body">
+			
+				<img src="../../assets/datas.png" class="card-img-top" alt="...">
+				<br>
+				<br>
+			  <p class="card-text">A continuación mostramos una gráfica de linea donde podemos ver los análisis realizados por la aplicación que se obtuvieron en distintas fechas y horas</p>
+			  <button type="button" class="button-defect"><a class="nav-link" [routerLink]="'/graficaBarras'">Análisis de la aplicación
+			</a></button>
+		</div>
+	  </div>          
+
+	  <div class="card text-center">
+			<div class="card-body">
+					<img src="../../assets/birds2.png" class="card-img-top" alt="...">
+					<br>
+					<br>
+					<p class="card-text">Procedemos a la muestra una gráfica de tipo tarta con los registros de las aves del sistema.</p>
+					<button type="button" class="button-defect"><a class="nav-link" [routerLink]="'/graficaTarta'">Aves encontradas </a></button>
+				</div>
+	  </div>          
+	</div>
+  </div>  
+  <div class="container">
+			
+	
+		  
+	<button type="button" class="button-defect"><a class="nav-link" [routerLink]="''">Volver</a></button>
+
 </div>
-
-
-<button type="button" class="button-defect" ><a class="nav-link" [routerLink]="''" >Volver</a></button>

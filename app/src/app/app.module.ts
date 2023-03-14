@@ -20,8 +20,12 @@ import { NgxSpinner, NgxSpinnerModule } from 'ngx-spinner';
 import { InterceptorService } from './services/interceptor.service';
 import { GraficasComponent } from './graficas/graficas.component';
 
+
 import * as CanvasJSAngularChart from '../assets/canvasjs.angular.component';
+import { GraficaBarrasComponent } from './grafica-barras/grafica-barras.component';
+import { GraficaTartaComponent } from './grafica-tarta/grafica-tarta.component';
 var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
+
 const appRoutes = [
   {path: '', component:HomeComponent},
   {path:'tables',component : TablasComponent},
@@ -29,7 +33,10 @@ const appRoutes = [
   {path:'tables/tablabird',component:TablaBirdComponent},
   {path:'tables/tabladatas',component:TablaDatasComponent},
   {path:'infoBirds',component:InfoBirdsComponent},
-  {path:'graficas',component:GraficasComponent}
+  {path:'graficas',component:GraficasComponent},
+  {path:'graficaBarras',component:GraficaBarrasComponent},
+  {path:'graficaTarta',component:GraficaTartaComponent},
+
 ]
 
 
@@ -43,7 +50,9 @@ const appRoutes = [
     TablaDatasComponent,
     InfoBirdsComponent,
     GraficasComponent,
-    CanvasJSChart
+    CanvasJSChart,
+    GraficaBarrasComponent,
+    GraficaTartaComponent
 
   
 

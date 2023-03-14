@@ -1,17 +1,38 @@
 
+<div class="title">
+        <h1 style="text-align: center;">Tablas de los registros de la aplicación</h1>
+</div>  
 
 
-<div class="contianer">
+<div class="container">   
+        <div class="card-group mt-3">
+    
+          <div class="card text-center ">
+            <div class="card-body">
+                <img src="../../assets/palomo.png" class="card-img-top" alt="...">
+                <br>
+                <br>                  
+                <p class="card-text">A continuación veremos una tabla con los registros de todas las aves identificadas por la aplicación, además de información sobre estas mediante el acceso a la Api de OpenAI</p>
+                  <button  style="align-content:center;" type="button" class="button-defect"><a class="nav-link" [routerLink]="'/tables/tablabird'">Tabla de registros
+                        de aves</a></button>
+            </div>
+          </div>          
+    
+          <div class="card text-center">
+                <div class="card-body">
+                        <img src="../../assets/PAJARILLO.png" class="card-img-top" alt="...">
+                        <br>
+                        <br>
+                        <p class="card-text">Procederemos a ver en forma de tabla todos los registros de los análisis realizados por la aplicación, con la posibilidad de eliminar alguno si se desea.</p>
+                        <button  style="align-content:center;" type="button" class="button-defect"><a class="nav-link" [routerLink]="'/tables/tabladatas'">Tabla de registros de la aplicación</a></button>
+                      </div>
+          </div>          
+        </div>
+      </div>  
+      <div class="container">
+                
         
+              
+        <button type="button" class="button-defect"><a class="nav-link" [routerLink]="''">Volver</a></button>
+
 </div>
-
-
-
-<button type="button" class="button-defect"><a class="nav-link" [routerLink]="'/tables/tabladatas'">Tabla de registros
-        de identificaciones</a></button>
-<button type="button" class="button-defect"><a class="nav-link" [routerLink]="'/tables/tablabird'">Tabla de registros
-        de aves</a></button>
-
-
-
-<button type="button" class="button-defect"><a class="nav-link" [routerLink]="''">Volver</a></button>

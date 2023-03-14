@@ -1,0 +1,10 @@
+
+<div>
+    <div>
+        <canvasjs-chart [options]="chartOptions" [styles]="{width: '100%', height: '360px'}" (chartInstance)="getChartInstance($event)"></canvasjs-chart>    
+    </div> 
+    <h2>El número total de registros es: {{counter}}</h2>
+    
+    <button type="button" class="button-defect" ><a class="nav-link" [routerLink]="'/graficas'" >Volver</a></button>
+    
+</div>  
