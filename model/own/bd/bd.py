@@ -9,9 +9,7 @@ def lecturaDatos():
     with open("/Users/jesusvenacampos/Universidad/CUARTO/TFG/Repositorio/TFG/model/example/output.BirdNET.selection.table.txt","r") as archivo:
 
         for l in archivo.readlines():
-            
             #Lista de tuplas con todos los datos obtenidos
-
             lsf=l.replace("\n","").split("\t")
 
             #Eliminamos los datos que no necesitamos
@@ -56,15 +54,8 @@ def dataBase(data,birds):
     sql_sentence="CREATE TABLE IF NOT EXISTS datas(id_data integer PRIMARY KEY AUTOINCREMENT,beginTime VARCHAR(30),endTime VARCHAR(30),speciesCode VARCHAR(30),commonName VARCHAR(30),confidence VARCHAR(30),datetime DATETIME,FOREIGN KEY(speciesCode) REFERENCES birds(speciesCode))"
     cursor.execute(sql_sentence)
 
-    #sql_sentence2="CREATE TABLE IF NOT EXISTS temp(id_temp integer PRIMARY KEY AUTOINCREMENT,commonName VARCHAR(30),confidence VARCHAR(30),datetime DATETIME)"
-    #cursor.execute(sql_sentence2)
-
-
-
     print('Tablas creadas')
     
-    #Intentamos crear la tabla en la base de datos, si existe no la crea, el try es pa ra controlar una excepción. 
-
     #Controlamos la excepción en el caso de que el pájaro a añadir ya se encuentre en la bd
 
     for x in birds:
@@ -79,12 +70,6 @@ def dataBase(data,birds):
     print('Insertando datos generales')
     
     cursor.executemany("INSERT INTO datas(beginTime,endTime,speciesCode,commonName,confidence,datetime) VALUES (?,?,?,?,?,?)",data)
-    #dataTemp = []
-    
-    #for i in len(data):
-       #dataTemp.append((data[i][3],data[i][4],data[i][5]))
-
-    #cursor.executemany("INSERT INTO temp(commonName,confidence,datetime) VALUES (?,?,?)",dataTemp)
    
     #Para hacer el cambio persistente
     conex.commit()

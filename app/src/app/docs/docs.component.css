@@ -39,3 +39,26 @@
     box-shadow: none;
     color: #2c5777;
   }
+
+
+.cardcontainer{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+
+img{
+  max-width: 250px;
+  width: 250px;
+  height: 200px;
+}
+
+
+  h1,h2,h3,button{
+    text-align: center;
+}
+
+

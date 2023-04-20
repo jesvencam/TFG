@@ -180,7 +180,7 @@ module.exports.register = (app,db) =>{
           max_tokens: 2048,
           temperature: 1,
         });
-      
+          
           console.log(JSON.parse(response.data.choices[0].text));
 
 
@@ -205,7 +205,43 @@ module.exports.register = (app,db) =>{
     
    }
 
+   app.get("/api/info/:msg", async (req, res, next) => {
+    console.log("En la api");
+    var msg = req.params.msg;
+    let resultado = conexionApiOpenAILibreMensaje(msg,res);
+    
+    
+  });
+   
 
+
+   function conexionApiOpenAILibreMensaje(msg,res){
+    const config = new Configuration({
+      apiKey: "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",
+    });
+    
+    const openai = new OpenAIApi(config);
+    console.log("el mensaje", msg);
+    const runPrompt = async () => {
+      const prompt = `${{msg}} y devuelveme la respuesta en formato json`;
+    
+      const response = await openai.createCompletion({
+        model: "text-davinci-003",
+        prompt: prompt,
+        max_tokens: 2048,
+        temperature: 1,
+      });
+        console.log(response);
+        console.log(JSON.parse(response.data.choices[0].text));
+
+
+        res.send(JSON.parse(response.data.choices[0].text));
+        return response.data.choices[0].JSON;
+
+    };
+    
+    runPrompt();
+ }
 
 
     

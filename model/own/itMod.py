@@ -54,7 +54,7 @@ def params(func):
 
     time.sleep(30)
 
-    #Ponemos el valor act a false, paramos la ejecución del hilo
+    #Ponemos el valor act a, paramos la ejecución del hilo
 
     act.clear()
 

@@ -24,7 +24,6 @@ const api = require("./back/indexApi.js");
 api.register(app,db);
 
 
-
 //En el caso de otra petición. 
 app.use(function(req, res){
     res.status(404);

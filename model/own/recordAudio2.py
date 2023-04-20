@@ -2,14 +2,11 @@ from http import client
 import pyaudio
 import wave
 
-
-
 trozo = 1024
 FORMAT = pyaudio.paInt16
 CHANNELS = 1
 RATE = 44100
 RECORD_SECONDS = 5
-
 
 p = pyaudio.PyAudio()
 
