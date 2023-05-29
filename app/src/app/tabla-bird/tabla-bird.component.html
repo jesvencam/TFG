@@ -9,8 +9,16 @@
     </div>
 
   </ngx-spinner>
-<table class="table">
-    <thead>
+
+  <table class="table align-middle mb-0 bg-white">
+    <thead class="bg-light">
+      <tr>
+        <th scope="col">Búsqueda por cualquiera de los campos de la tabla</th>
+        <th><input class="form-control" type="text" placeholder="Búsqueda"[(ngModel)]="searchText"></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+
+      </tr>
       <tr>
         <th scope="col">Entrada</th>
         <th scope="col">Nombre Común Ave</th>
@@ -18,18 +26,22 @@
         <th scope="col">Más información</th>
       </tr>
     </thead>
+
+
+
     <tbody>
-      <tr *ngFor="let bird of birds | paginate: { itemsPerPage: 10, currentPage: p }">
+
+      <tr *ngFor="let bird of birds | search: searchText | paginate: { itemsPerPage: 10, currentPage: p }">
         <td>{{bird.id_bird}}</td>
         <td>{{bird.name}}</td>
         <td>{{bird.speciesCode}}</td>
-        <button class="button-defect" role="button" (click)="onInfoBird(content,bird.name)"> Más información</button>
+        <td><button class="button-defect" role="button" (click)="onInfoBird(content,bird.name)"> Más información</button></td>
       </tr>
       <pagination-controls (pageChange)="p = $event" previousLabel="Anterior"
       nextLabel="Siguiente"></pagination-controls>
-
     </tbody>
   </table>
+
 
   <button type="button" class="button-defect" ><a class="nav-link" [routerLink]="'/tables'" >Volver</a></button>
 
@@ -62,3 +74,6 @@
         </button>
     </div>
 </ng-template>
+
+
+

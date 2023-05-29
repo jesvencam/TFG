@@ -2,3 +2,28 @@
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans',
 }
 
+html, body {
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;     
+  }
+
+  .content {
+    flex: 1;
+    width: 100%;
+  }
+
+  .footer {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    text-align: center;
+  }

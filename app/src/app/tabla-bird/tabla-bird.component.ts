@@ -13,7 +13,7 @@ export class TablaBirdComponent {
   dt : any;
   dataDisplay : any;
 
-
+  searchText="";
 
 
   //Numero de pagina inicial (paginacion)

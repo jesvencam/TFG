@@ -15,6 +15,7 @@ export class TablaDatasComponent {
   dataDisplay : any;
 
 
+  searchText="";
   public id_data : any ; 
   public datas : Array<any> = [];
 

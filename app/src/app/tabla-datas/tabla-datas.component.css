@@ -89,3 +89,7 @@ Buttoms
     align-items: center;
     margin : 0 auto;
   }
+
+  .espacio {
+    margin-bottom: 20px;
+}

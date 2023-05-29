@@ -24,6 +24,8 @@ import { GraficasComponent } from './graficas/graficas.component';
 import * as CanvasJSAngularChart from '../assets/canvasjs.angular.component';
 import { GraficaBarrasComponent } from './grafica-barras/grafica-barras.component';
 import { GraficaTartaComponent } from './grafica-tarta/grafica-tarta.component';
+import { SearchPipe } from './search.pipe';
+import { FormsModule } from '@angular/forms';
 var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
 
 const appRoutes = [
@@ -52,7 +54,8 @@ const appRoutes = [
     GraficasComponent,
     CanvasJSChart,
     GraficaBarrasComponent,
-    GraficaTartaComponent
+    GraficaTartaComponent,
+    SearchPipe
 
   
 
@@ -67,7 +70,8 @@ const appRoutes = [
     ColorPickerModule,
     NgChartsModule,
     BrowserAnimationsModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    FormsModule
 
   ],
   providers: [
