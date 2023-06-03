@@ -15,7 +15,7 @@ module.exports.register = (app,db) =>{
         var params = []
         db.all(sql, params, (err, rows) => {
             if (err) {
-              res.sendStatus(400,);
+              res.sendStatus(500,"INTERNAL SERVER ERROR");
               return;
             }else{
               res.send(JSON.stringify(rows,null,2));
@@ -103,13 +103,13 @@ module.exports.register = (app,db) =>{
       });      
       process1.stdin.end()
 
-    
     }
 
     app.get("/api/pruebaDeBoton", (req, res, next) => {
       console.log("En la api ejecutando botón... ")
-
       recordRealTime();
+
+      
       var sql = "SELECT * FROM birds"
         var params = []
       db.all(sql, params, (err, rows) => {
