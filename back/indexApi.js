@@ -161,7 +161,7 @@ module.exports.register = (app,db) =>{
 
    function conexionApiOpenAI(bird,res){
       const config = new Configuration({
-        apiKey: "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",
+        apiKey: "INSERTAR APIKEY",
       });
       
       const openai = new OpenAIApi(config);
@@ -217,7 +217,7 @@ module.exports.register = (app,db) =>{
 
    function conexionApiOpenAILibreMensaje(msg,res){
     const config = new Configuration({
-      apiKey: "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",
+      apiKey: "INSERTAR APIKEY",
     });
     
     const openai = new OpenAIApi(config);
